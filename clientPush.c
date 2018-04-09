@@ -24,13 +24,13 @@
  */
 
 //Initialize globals.
-char _userName[] = "USER kickoffc\n";
-char _passWord[] = "PASS Africamoja7124\n";
+char _userName[] = "USER username\n"; //replace @username with a real userName
+char _passWord[] = "PASS password\n"; //replace @password with a real password
 char _PASIVE[] = "PASV\n";
 char _changeDir[] = "CWD/\n";
 const int _SIZE = 1023;
 const int port = 21;
-const char address[] = "67.225.129.56";
+const char address[] = "address"; //replace @address with a real address eg 145.123.*
 char buffer[1023];
 FILE *logFile, *dsLog, *contentFile;  //ds: short for daemon system log
 struct sockaddr_in sa;
@@ -44,7 +44,7 @@ char command[256];
 //START OF MAIN
 int main(void) {
     //open daemon system logs file.
-    dsLog = fopen("/root/Cellulant/Project2/UpdateStimesPrototype/controller/daemonAngel.log","a+");
+    dsLog = fopen("/daemonAngel.log","a+");
     //process ID and Session ID
     pid_t pid, sid;      
     //Fork off the parent process
@@ -108,9 +108,9 @@ int main(void) {
       time ( &rawtime );
       timeinfo = localtime ( &rawtime );
       //open content file to read  in b_mode 
-      contentFile = fopen("/root/Cellulant/Project2/UpdateStimesPrototype/controller/ffiletest.txt", "rb");
+      contentFile = fopen("/ffiletest.txt", "rb");
       //open log file
-      logFile = fopen("/root/Cellulant/Project2/UpdateStimesPrototype/controller/daemonAngel.log","a+");
+      logFile = fopen("/daemonAngel.log","a+");
       //write a time stamp to the log file.
       fputs(asctime (timeinfo),logFile);
       //call for socket conection procedure 
